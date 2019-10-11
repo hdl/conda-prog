@@ -1,44 +1,16 @@
-# conda-hdmi2usb-packages
+# litex-conda-prog
 
-Conda build recipes for HDMI2USB-litex-firmware build dependencies.
+Conda build recipes for FPGA programming tools. Designed to be used with LiteX.
 
-Basically, anything which hasn't gotten a proper package at https://launchpad.net/~timvideos/+archive/ubuntu/hdmi2usb
+The current tools are;
 
-# Toolchains
+ * openocd
+ * dfu-util
+ * flterm
+ * fxload
+ * icefunprog
+ * iceprog
 
-## LiteX "soft-CPU" support
-
-The LiteX system supports both a `lm32` and `or1k` "soft-CPU" implementations.
-
-Current versions are;
-
- * binutils - 2.31.0
- * gcc - 8.2.0
- * gcc+newlib - 8.2.0 + 3.0.0
- * gdb - 8.2
-
-### lm32-elf
-
- * All come from upstream.
-
-### or1k-elf
-
- * binutils, gdb & newlib - upstream
- * gcc - Rebase of Stafford Horn's gcc 9.0 patches
-
-## riscv32-elf
-
- * All come from upstream.
-
-## Cypress FX2 support
-
- * sdcc (Current version: 3.5.0)
-
-# Support Tools
-
-## OpenOCD
-
-Tool for JTAG programming.
 
 # Building
 
@@ -116,11 +88,12 @@ sudo apt-get install wget git
 # Packages from ~/.travis.yml; realpath is in coreutils in Ubuntu 18.04
 # Plus libtool and pkg-config, which are needed for openocd
 #
-#sudo apt-get install realpath autoconf automake build-essential gperf libftdi-dev libudev-dev libudev1 libusb-1.0-0-dev libusb-dev texinfo
-sudo apt-get install coreutils autoconf automake build-essential gperf libftdi-dev libudev-dev libudev1 libusb-1.0-0-dev libusb-dev texinfo libtool pkg-config
+# sudo apt-get install realpath
+sudo apt-get install coreutils
 
-git clone https://github.com/timvideos/conda-hdmi2usb-packages.git
-conda-hdmi2usb-packages/conda-get.sh
+git clone https://github.com/litex-hub/litex-conda-prog.git
+cd litex-conda-prog
+./conda-get.sh
 
 # Adapted from .travis/common.sh
 get_built_package() {
@@ -142,13 +115,7 @@ export DATE_TS="$(git log --format=%ct -n1)"
 export DATE_NUM="$(date --date=@${DATE_TS} -u +%Y%m%d%H%M%S)"
 export DATE_STR="$(date --date=@${DATE_TS} -u +%Y%m%d_%H%M%S)"
 
-# Combinations taken from .travis.yml
-TOOLCHAIN_ARCH=lm32
-export PACKAGE TOOLCHAIN_ARCH
-
-cd conda-hdmi2usb-packages
-
-for PACKAGE in binutils gcc/nostdc gcc/newlib; do
+for PACKAGE in lib/* prog/*; do
   ./conda-env.sh build --check "${PACKAGE}"   # Downloads and caches stuff
   ./conda-env.sh build         "${PACKAGE}"   # Actually build package
   CONDA_OUT="$(get_built_package ${PACKAGE})" # Calculate output package
