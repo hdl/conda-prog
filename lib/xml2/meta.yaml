@@ -28,15 +28,10 @@ requirements:
     - pkg-config  # [not win]
     - make  # [not win]
     - m2-patch  # [win]
-    - icu  # [not win]
   host:
-    - icu  # [not win]
-    - libiconv
     - xz  # [not win]
     - zlib
   run:
-    - icu  # [not win]
-    - libiconv
     - xz  # [not win]
     - zlib
 

@@ -5,9 +5,9 @@
 ./configure --prefix="${PREFIX}" \
             --build=${BUILD} \
             --host=${HOST} \
-            --with-iconv="${PREFIX}" \
+            --without-iconv \
             --with-zlib="${PREFIX}" \
-            --with-icu \
+            --without-icu \
             --with-lzma="${PREFIX}" \
             --without-python \
             --enable-static=no
