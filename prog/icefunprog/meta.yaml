@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  git_url: https://github.com/y2kbugger/iceFUNprog.git
+  git_url: https://github.com/devantech/iceFUNprog.git
   git_rev: master
 
 build:
