@@ -1,4 +1,4 @@
-# cmake 1.15 required for boost 1.71
+# cmake 3.15 required for boost 1.71
 {% set boost_version = ">=1.67,<1.68.0a0" %}
 
 package:
@@ -24,31 +24,18 @@ requirements:
     - python
     - {{ compiler('c') }}   [not win]
     - {{ compiler('cxx') }} [not win]
+    - pkg-config            [not win]
     - cmake
+  host:
+    - swig
     - libusb
     - boost {{ boost_version }}
     - boost-cpp {{ boost_version }}
     - libboost {{ boost_version }}
     - py-boost {{ boost_version }}
-    - python
-  host:
-    - cmake
-    - pkg-config [not win]
-    - swig
-    # cmake 1.15 required for boost 1.71
-    - {{ pin_compatible('boost', min_pin='x.x', max_pin='x.x') }}
-    - {{ pin_compatible('boost-cpp', min_pin='x.x', max_pin='x.x') }}
-    - {{ pin_compatible('libboost', min_pin='x.x', max_pin='x.x') }}
-    - {{ pin_compatible('libusb', min_pin='x.x', max_pin='x.x') }}
   run:
-    - {{ compiler('c') }}
-    - libgcc-ng    [linux]
-    - libstdcxx-ng [linux]
     - libusb
     - python
-    - py-boost {{ boost_version }}
-    - {{ pin_compatible('libboost', min_pin='x.x', max_pin='x.x') }}
-    - {{ pin_compatible('libusb', min_pin='x.x', max_pin='x.x') }}
 
 about:
   home: https://www.intra2net.com/en/developer/libftdi/
