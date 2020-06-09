@@ -17,6 +17,30 @@ jobs:
      env:
      - PACKAGE=lib/ftdi
 
+   # OSX
+   - stage: "Libraries"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/usb
+
+   - stage: "Libraries"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/ftdi
+
+   # Windows
+   - stage: "Libraries"
+     os: windows
+     env:
+     - PACKAGE=lib/usb
+
+   - stage: "Libraries"
+     os: windows
+     env:
+     - PACKAGE=lib/ftdi
+
    # Programming Tools
    - stage: "Programming Tools"
      env:
@@ -41,6 +65,43 @@ jobs:
    - stage: "Programming Tools"
      env:
      - PACKAGE=prog/dfu-util
+
+   # OSX
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/iceprog
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/icefunprog
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/dfu-util
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/openocd
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/flterm
+
+   # Windows
+   - stage: "Programming Tools"
+     os: windows
+     env:
+     - PACKAGE=prog/iceprog
 
    fast_finish: true
 
