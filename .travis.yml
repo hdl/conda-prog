@@ -1,4 +1,4 @@
-language: minimal
+language: shell
 
 dist: xenial
 addons:
@@ -42,6 +42,8 @@ jobs:
      env:
      - PACKAGE=prog/dfu-util
 
+   fast_finish: true
+
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
  - bash $TRAVIS_BUILD_DIR/.travis/fixup-git.sh
@@ -62,4 +64,4 @@ after_success:
 
 cache:
   directories:
-   - /home/travis/.conda/pkgs
+   - $HOME/.conda/pkgs
