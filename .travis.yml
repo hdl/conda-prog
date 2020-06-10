@@ -1,4 +1,4 @@
-language: minimal
+language: shell
 
 dist: xenial
 addons:
@@ -14,6 +14,30 @@ jobs:
      - PACKAGE=lib/usb
 
    - stage: "Libraries"
+     env:
+     - PACKAGE=lib/ftdi
+
+   # OSX
+   - stage: "Libraries"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/usb
+
+   - stage: "Libraries"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/ftdi
+
+   # Windows
+   - stage: "Libraries"
+     os: windows
+     env:
+     - PACKAGE=lib/usb
+
+   - stage: "Libraries"
+     os: windows
      env:
      - PACKAGE=lib/ftdi
 
@@ -42,9 +66,49 @@ jobs:
      env:
      - PACKAGE=prog/dfu-util
 
+   # OSX
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/iceprog
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/icefunprog
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/dfu-util
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/openocd
+
+   - stage: "Programming Tools"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/flterm
+
+   # Windows
+   - stage: "Programming Tools"
+     os: windows
+     env:
+     - PACKAGE=prog/iceprog
+
+   fast_finish: true
+
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
  - bash $TRAVIS_BUILD_DIR/.travis/fixup-git.sh
+ - bash $TRAVIS_BUILD_DIR/.travis/download_sdk.sh
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
 
 install:
@@ -61,4 +125,4 @@ after_success:
 
 cache:
   directories:
-   - /home/travis/.conda/pkgs
+   - $HOME/.conda/pkgs
