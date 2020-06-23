@@ -18,6 +18,10 @@ jobs:
      env:
      - PACKAGE=lib/ftdi
 
+   - stage: "Libraries"
+     env:
+     - PACKAGE=lib/xml2
+
    # OSX
    - stage: "Libraries"
      os: osx
@@ -30,6 +34,12 @@ jobs:
      osx_image: xcode8.3
      env:
      - PACKAGE=lib/ftdi
+
+   - stage: "Libraries"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/xml2
 
    # Windows
    - stage: "Libraries"

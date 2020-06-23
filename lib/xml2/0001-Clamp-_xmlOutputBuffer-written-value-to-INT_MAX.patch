@@ -1,0 +1,70 @@
+From 0100c548f72a9971767ce5f40ed8fd4809923fbc Mon Sep 17 00:00:00 2001
+From: Keith Rothman <25643-litghost@users.noreply.gitlab.gnome.org>
+Date: Tue, 8 Oct 2019 10:24:07 -0700
+Subject: [PATCH] Clamp _xmlOutputBuffer::written value to INT_MAX.
+
+If more than INT_MAX bytes are written to the _xmlOutputBuffer, then
+counter saturates at INT_MAX.  If tracking of more than INT_MAX bytes is
+required, custom callbacks should be created, per
+https://gitlab.gnome.org/GNOME/libxml2/issues/112#note_620930
+
+Signed-off-by: Keith Rothman <25643-litghost@users.noreply.gitlab.gnome.org>
+---
+ xmlIO.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
+
+diff --git a/xmlIO.c b/xmlIO.c
+index 2a1e2cb0..5606a7eb 100644
+--- a/xmlIO.c
++++ b/xmlIO.c
+@@ -2485,6 +2485,17 @@ xmlFreeParserInputBuffer(xmlParserInputBufferPtr in) {
+     xmlFree(in);
+ }
+ 
++static int clamped_add(int a, int b) {
++    long long c = a;
++    c += b;
++    if(c > INT_MAX)
++	return INT_MAX;
++    else if(c < INT_MIN)
++	return INT_MIN;
++    else
++	return c;
++}
++
+ #ifdef LIBXML_OUTPUT_ENABLED
+ /**
+  * xmlOutputBufferClose:
+@@ -3413,7 +3424,8 @@ xmlOutputBufferWrite(xmlOutputBufferPtr out, int len, const char *buf) {
+ 		out->error = XML_IO_WRITE;
+ 		return(ret);
+ 	    }
+-	    out->written += ret;
++	    // Clamp at INT_MAX.
++	    out->written = clamped_add(out->written, ret);
+ 	}
+ 	written += nbchars;
+     } while (len > 0);
+@@ -3609,7 +3621,8 @@ xmlOutputBufferWriteEscape(xmlOutputBufferPtr out, const xmlChar *str,
+ 		out->error = XML_IO_WRITE;
+ 		return(ret);
+ 	    }
+-	    out->written += ret;
++	    // Clamp at INT_MAX.
++	    out->written = clamped_add(out->written, ret);
+ 	} else if (xmlBufAvail(out->buffer) < MINLEN) {
+ 	    xmlBufGrow(out->buffer, MINLEN);
+ 	}
+@@ -3703,7 +3716,8 @@ xmlOutputBufferFlush(xmlOutputBufferPtr out) {
+ 	out->error = XML_IO_FLUSH;
+ 	return(ret);
+     }
+-    out->written += ret;
++    // Clamp at INT_MAX.
++    out->written = clamped_add(out->written, ret);
+ 
+ #ifdef DEBUG_INPUT
+     xmlGenericError(xmlGenericErrorContext,
+-- 
+2.23.0.581.g78d2f28ef7-goog
+
