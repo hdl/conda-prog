@@ -126,7 +126,6 @@ jobs:
    - stage: "Main label upload"
      os: linux
      dist: xenial
-     install: skip
      script:
        - bash $TRAVIS_BUILD_DIR/.travis/master-package.sh
 
@@ -134,7 +133,6 @@ jobs:
    - stage: "Cleanup"
      os: linux
      dist: xenial
-     install: skip
      script:
        - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
 
