@@ -6,113 +6,135 @@ addons:
     packages:
     - realpath
 
+stages:
+  - name: "No dependencies" # Doesn't depend on anything apart from upstream packages
+    if: type != cron
+  - name: "Has first level dependencies" # Depends on a package in the "no dependencies" group
+    if: type != cron
+  - name: "Has second level dependencies" # Depends on a package in the "Has first level dependencies" group
+    if: type != cron
+  - name: "Main label upload" # Puts Anaconda packages to the main label
+    if: type = push AND branch = master
+  - name: "Cleanup" # Job for removing old Anaconda labels
+    if: type = cron
+
 jobs:
   fast_finish: true
   include:
-   # Libraries
-   - stage: "Libraries"
+   - stage: "No dependencies"
      env:
      - PACKAGE=lib/usb
 
-   - stage: "Libraries"
+   - stage: "No dependencies"
+     os: osx
+     osx_image: xcode8.3
      env:
-     - PACKAGE=lib/ftdi
+     - PACKAGE=lib/usb
 
-   - stage: "Libraries"
+   - stage: "No dependencies"
+     os: windows
+     env:
+     - PACKAGE=lib/usb
+
+   - stage: "No dependencies"
      env:
      - PACKAGE=lib/xml2
 
-   # OSX
-   - stage: "Libraries"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=lib/usb
-
-   - stage: "Libraries"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=lib/ftdi
-
-   - stage: "Libraries"
+   - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=lib/xml2
 
-   # Windows
-   - stage: "Libraries"
-     os: windows
-     env:
-     - PACKAGE=lib/usb
-
-   - stage: "Libraries"
-     os: windows
-     env:
-     - PACKAGE=lib/ftdi
-
-   # Programming Tools
-   - stage: "Programming Tools"
-     env:
-     - PACKAGE=prog/iceprog
-
-   - stage: "Programming Tools"
+   - stage: "No dependencies"
      env:
      - PACKAGE=prog/icefunprog
 
-   - stage: "Programming Tools"
+   - stage: "No dependencies"
+     os: osx
+     osx_image: xcode8.3
      env:
-     - PACKAGE=prog/openocd
+     - PACKAGE=prog/icefunprog
 
-   - stage: "Programming Tools"
+   - stage: "No dependencies"
      env:
      - PACKAGE=prog/flterm
 
-   - stage: "Programming Tools"
+   - stage: "No dependencies"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/flterm
+
+
+   - stage: "Has first level dependencies"
+     env:
+     - PACKAGE=lib/ftdi
+
+   - stage: "Has first level dependencies"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=lib/ftdi
+
+   - stage: "Has first level dependencies"
+     os: windows
+     env:
+     - PACKAGE=lib/ftdi
+
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=prog/fxload
 
-   - stage: "Programming Tools"
+   - stage: "Has first level dependencies"
      env:
      - PACKAGE=prog/dfu-util
 
-   # OSX
-   - stage: "Programming Tools"
+   - stage: "Has first level dependencies"
+     os: osx
+     osx_image: xcode8.3
+     env:
+     - PACKAGE=prog/dfu-util
+
+
+   - stage: "Has second level dependencies"
+     env:
+     - PACKAGE=prog/iceprog
+
+   - stage: "Has second level dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=prog/iceprog
 
-   - stage: "Programming Tools"
-     os: osx
-     osx_image: xcode8.3
+   - stage: "Has second level dependencies"
+     os: windows
      env:
-     - PACKAGE=prog/icefunprog
+     - PACKAGE=prog/iceprog
 
-   - stage: "Programming Tools"
-     os: osx
-     osx_image: xcode8.3
+   - stage: "Has second level dependencies"
      env:
-     - PACKAGE=prog/dfu-util
+     - PACKAGE=prog/openocd
 
-   - stage: "Programming Tools"
+   - stage: "Has second level dependencies"
      os: osx
      osx_image: xcode8.3
      env:
      - PACKAGE=prog/openocd
 
-   - stage: "Programming Tools"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=prog/flterm
+  # Move packages from the current label to main
+   - stage: "Main label upload"
+     os: linux
+     dist: xenial
+     script:
+       - bash $TRAVIS_BUILD_DIR/.travis/master-package.sh
 
-   # Windows
-   - stage: "Programming Tools"
-     os: windows
-     env:
-     - PACKAGE=prog/iceprog
+  # Remove old labels
+   - stage: "Cleanup"
+     os: linux
+     dist: xenial
+     script:
+       - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
 
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
