@@ -19,10 +19,6 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-  run:
-  {% for package in resolved_packages('host') %}
-    - {{ package }}
-  {% endfor %}
 
 test:
   commands:
