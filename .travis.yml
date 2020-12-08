@@ -14,7 +14,7 @@ stages:
   - name: "Has second level dependencies" # Depends on a package in the "Has first level dependencies" group
     if: type != cron
   - name: "Main label upload" # Puts Anaconda packages to the main label
-    if: type = push AND branch = master
+    if: type != cron
   - name: "Cleanup" # Job for removing old Anaconda labels
     if: type = cron
 
@@ -25,109 +25,14 @@ jobs:
      env:
      - PACKAGE=lib/usb
 
-   - stage: "No dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=lib/usb
-
-   - stage: "No dependencies"
-     os: windows
-     env:
-     - PACKAGE=lib/usb
-
-   - stage: "No dependencies"
-     env:
-     - PACKAGE=lib/xml2
-
-   - stage: "No dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=lib/xml2
-
-   - stage: "No dependencies"
-     env:
-     - PACKAGE=prog/icefunprog
-
-   - stage: "No dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=prog/icefunprog
-
-   - stage: "No dependencies"
-     env:
-     - PACKAGE=prog/flterm
-
-   - stage: "No dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=prog/flterm
-
-
-   - stage: "Has first level dependencies"
-     env:
-     - PACKAGE=lib/ftdi
-
-   - stage: "Has first level dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=lib/ftdi
-
-   - stage: "Has first level dependencies"
-     os: windows
-     env:
-     - PACKAGE=lib/ftdi
-
-   - stage: "Has first level dependencies"
-     env:
-     - PACKAGE=prog/fxload
-
-   - stage: "Has first level dependencies"
-     env:
-     - PACKAGE=prog/dfu-util
-
-   - stage: "Has first level dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=prog/dfu-util
-
-
-   - stage: "Has second level dependencies"
-     env:
-     - PACKAGE=prog/iceprog
-
-   - stage: "Has second level dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=prog/iceprog
-
-   - stage: "Has second level dependencies"
-     os: windows
-     env:
-     - PACKAGE=prog/iceprog
-
-   - stage: "Has second level dependencies"
-     env:
-     - PACKAGE=prog/openocd
-
-   - stage: "Has second level dependencies"
-     os: osx
-     osx_image: xcode8.3
-     env:
-     - PACKAGE=prog/openocd
-
   # Move packages from the current label to main
    - stage: "Main label upload"
      os: linux
      dist: xenial
      script:
        - bash $TRAVIS_BUILD_DIR/.travis/master-package.sh
+     after_success: skip
+     after_failure: skip
 
   # Remove old labels
    - stage: "Cleanup"
@@ -135,6 +40,8 @@ jobs:
      dist: xenial
      script:
        - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
+     after_success: skip
+     after_failure: skip
 
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
