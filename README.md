@@ -115,7 +115,7 @@ export DATE_TS="$(git log --format=%ct -n1)"
 export DATE_NUM="$(date --date=@${DATE_TS} -u +%Y%m%d%H%M%S)"
 export DATE_STR="$(date --date=@${DATE_TS} -u +%Y%m%d_%H%M%S)"
 
-for PACKAGE in lib/* prog/*; do
+for PACKAGE in lib/* tools/*; do
   ./.travis/conda-env.sh build --check "${PACKAGE}"   # Downloads and caches stuff
   ./.travis/conda-env.sh build         "${PACKAGE}"   # Actually build package
   CONDA_OUT="$(get_built_package ${PACKAGE})" # Calculate output package
