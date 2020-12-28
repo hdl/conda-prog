@@ -48,23 +48,23 @@ jobs:
 
    - stage: "No dependencies"
      env:
-     - PACKAGE=prog/icefunprog
+     - PACKAGE=tools/icefunprog
 
    - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
-     - PACKAGE=prog/icefunprog
+     - PACKAGE=tools/icefunprog
 
    - stage: "No dependencies"
      env:
-     - PACKAGE=prog/flterm
+     - PACKAGE=tools/flterm
 
    - stage: "No dependencies"
      os: osx
      osx_image: xcode8.3
      env:
-     - PACKAGE=prog/flterm
+     - PACKAGE=tools/flterm
 
 
    - stage: "Has first level dependencies"
@@ -84,43 +84,43 @@ jobs:
 
    - stage: "Has first level dependencies"
      env:
-     - PACKAGE=prog/fxload
+     - PACKAGE=tools/fxload
 
    - stage: "Has first level dependencies"
      env:
-     - PACKAGE=prog/dfu-util
+     - PACKAGE=tools/dfu-util
 
    - stage: "Has first level dependencies"
      os: osx
      osx_image: xcode8.3
      env:
-     - PACKAGE=prog/dfu-util
+     - PACKAGE=tools/dfu-util
 
 
    - stage: "Has second level dependencies"
      env:
-     - PACKAGE=prog/iceprog
+     - PACKAGE=tools/iceprog
 
    - stage: "Has second level dependencies"
      os: osx
      osx_image: xcode8.3
      env:
-     - PACKAGE=prog/iceprog
+     - PACKAGE=tools/iceprog
 
    - stage: "Has second level dependencies"
      os: windows
      env:
-     - PACKAGE=prog/iceprog
+     - PACKAGE=tools/iceprog
 
    - stage: "Has second level dependencies"
      env:
-     - PACKAGE=prog/openocd
+     - PACKAGE=tools/openocd
 
    - stage: "Has second level dependencies"
      os: osx
      osx_image: xcode8.3
      env:
-     - PACKAGE=prog/openocd
+     - PACKAGE=tools/openocd
 
   # Move packages from the current label to main
    - stage: "Main label upload"
