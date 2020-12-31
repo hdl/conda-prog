@@ -50,6 +50,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   libftdi-linux:
     runs-on: "ubuntu-16.04"
+    needs: "libusb-linux"
     env:
       PACKAGE: "lib/ftdi"
       OS_NAME: "linux"
@@ -60,6 +61,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   fxload-linux:
     runs-on: "ubuntu-16.04"
+    needs: "libusb-linux"
     env:
       PACKAGE: "prog/fxload"
       OS_NAME: "linux"
@@ -70,6 +72,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   dfu-util-linux:
     runs-on: "ubuntu-16.04"
+    needs: "libusb-linux"
     env:
       PACKAGE: "prog/dfu-util"
       OS_NAME: "linux"
@@ -80,6 +83,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   iceprog-linux:
     runs-on: "ubuntu-16.04"
+    needs: ["libusb-linux", "libftdi-linux"]
     env:
       PACKAGE: "prog/iceprog"
       OS_NAME: "linux"
@@ -90,6 +94,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   openocd-linux:
     runs-on: "ubuntu-16.04"
+    needs: ["libusb-linux", "libftdi-linux"]
     env:
       PACKAGE: "prog/iceprog"
       OS_NAME: "linux"
@@ -140,6 +145,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   libftdi-osx:
     runs-on: "macos-latest"
+    needs: "libusb-osx"
     env:
       PACKAGE: "lib/ftdi"
       OS_NAME: "osx"
@@ -150,6 +156,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   dfu-util-osx:
     runs-on: "macos-latest"
+    needs: "libusb-osx"
     env:
       PACKAGE: "prog/dfu-util"
       OS_NAME: "osx"
@@ -161,6 +168,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   iceprog-osx:
     runs-on: "macos-latest"
+    needs: ["libusb-osx", "libftdi-osx"]
     env:
       PACKAGE: "prog/iceprog"
       OS_NAME: "osx"
@@ -171,6 +179,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   openocd-osx:
     runs-on: "macos-latest"
+    needs: ["libusb-osx", "libftdi-osx"]
     env:
       PACKAGE: "prog/openocd"
       OS_NAME: "osx"
@@ -192,6 +201,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   libftdi-windows:
     runs-on: "windows-latest"
+    needs: "libusb-windows"
     env:
       PACKAGE: "lib/ftdi"
       OS_NAME: "windows"
@@ -202,6 +212,7 @@ jobs:
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   iceprog-windows:
     runs-on: "windows-latest"
+    needs: ["libusb-windows", "libftdi-windows"]
     env:
       PACKAGE: "prog/iceprog"
       OS_NAME: "windows"
