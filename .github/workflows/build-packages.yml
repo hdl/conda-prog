@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libxml2-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   icefunprog-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   flterm-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libftdi-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -58,7 +58,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   fxload-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -69,7 +69,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   dfu-util-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -80,7 +80,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   iceprog-linux:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
@@ -91,7 +91,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   openocd-linux:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
@@ -102,7 +102,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libusb-osx:
     runs-on: "macos-latest"
     env:
@@ -112,7 +112,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libxml2-osx:
     runs-on: "macos-latest"
     env:
@@ -122,7 +122,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   icefunprog-osx:
     runs-on: "macos-latest"
     env:
@@ -132,7 +132,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   flterm-osx:
     runs-on: "macos-latest"
     env:
@@ -142,7 +142,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libftdi-osx:
     runs-on: "macos-latest"
     needs: "libusb-osx"
@@ -153,7 +153,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   dfu-util-osx:
     runs-on: "macos-latest"
     needs: "libusb-osx"
@@ -165,7 +165,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   iceprog-osx:
     runs-on: "macos-latest"
     needs: ["libusb-osx", "libftdi-osx"]
@@ -176,7 +176,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   openocd-osx:
     runs-on: "macos-latest"
     needs: ["libusb-osx", "libftdi-osx"]
@@ -188,7 +188,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libusb-windows:
     runs-on: "windows-latest"
     env:
@@ -198,7 +198,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   libftdi-windows:
     runs-on: "windows-latest"
     needs: "libusb-windows"
@@ -209,7 +209,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   iceprog-windows:
     runs-on: "windows-latest"
     needs: ["libusb-windows", "libftdi-windows"]
@@ -220,7 +220,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   master-package:
     runs-on: "ubuntu-16.04"
     env:
