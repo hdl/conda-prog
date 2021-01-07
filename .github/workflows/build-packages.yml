@@ -8,6 +8,8 @@ defaults:
   run:
     shell: bash
 jobs:
+
+  #1
   libusb-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -18,6 +20,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #2
   libxml2-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -28,6 +32,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #3
   icefunprog-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -38,6 +44,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #4
   flterm-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -48,6 +56,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #5
   libftdi-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -59,6 +69,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #6
   fxload-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -70,6 +82,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #7
   dfu-util-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -81,6 +95,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #8
   iceprog-linux:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
@@ -92,6 +108,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #9
   openocd-linux:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
@@ -103,6 +121,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #10
   libusb-osx:
     runs-on: "macos-latest"
     env:
@@ -113,6 +133,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #11
   libxml2-osx:
     runs-on: "macos-latest"
     env:
@@ -123,6 +145,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #12
   icefunprog-osx:
     runs-on: "macos-latest"
     env:
@@ -133,6 +157,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #13
   flterm-osx:
     runs-on: "macos-latest"
     env:
@@ -143,6 +169,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #14
   libftdi-osx:
     runs-on: "macos-latest"
     needs: "libusb-osx"
@@ -154,6 +182,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #15
   dfu-util-osx:
     runs-on: "macos-latest"
     needs: "libusb-osx"
@@ -166,6 +196,8 @@ jobs:
           submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #16
   iceprog-osx:
     runs-on: "macos-latest"
     needs: ["libusb-osx", "libftdi-osx"]
@@ -177,6 +209,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #17
   openocd-osx:
     runs-on: "macos-latest"
     needs: ["libusb-osx", "libftdi-osx"]
@@ -189,6 +223,8 @@ jobs:
           submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #18
   libusb-windows:
     runs-on: "windows-latest"
     env:
@@ -199,6 +235,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #19
   libftdi-windows:
     runs-on: "windows-latest"
     needs: "libusb-windows"
@@ -210,6 +248,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #20
   iceprog-windows:
     runs-on: "windows-latest"
     needs: ["libusb-windows", "libftdi-windows"]
@@ -221,6 +261,7 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
   master-package:
     runs-on: "ubuntu-16.04"
     env:
