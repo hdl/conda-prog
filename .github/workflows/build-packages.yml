@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #2
   libxml2-linux:
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #3
   icefunprog-linux:
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #4
   flterm-linux:
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #5
   libftdi-linux:
@@ -68,7 +68,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #6
   fxload-linux:
@@ -81,7 +81,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #7
   dfu-util-linux:
@@ -94,7 +94,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #8
   iceprog-linux:
@@ -107,7 +107,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #9
   openocd-linux:
@@ -120,7 +120,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #10
   libusb-osx:
@@ -132,7 +132,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #11
   libxml2-osx:
@@ -144,7 +144,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #12
   icefunprog-osx:
@@ -156,7 +156,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #13
   flterm-osx:
@@ -168,7 +168,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #14
   libftdi-osx:
@@ -181,7 +181,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #15
   dfu-util-osx:
@@ -195,7 +195,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #16
   iceprog-osx:
@@ -208,7 +208,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #17
   openocd-osx:
@@ -222,7 +222,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #18
   libusb-windows:
@@ -234,7 +234,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #19
   libftdi-windows:
@@ -247,7 +247,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #20
   iceprog-windows:
@@ -260,7 +260,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   master-package:
     runs-on: "ubuntu-16.04"
