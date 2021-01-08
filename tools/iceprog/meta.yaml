@@ -25,6 +25,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - pkg-config      [not win]
+    - make            [not win]
     - m2w64-toolchain [win]
     - m2-base         [win]
     - m2-make         [win]

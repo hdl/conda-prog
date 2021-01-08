@@ -21,6 +21,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make
     - pkg-config
   host:
     - libusb

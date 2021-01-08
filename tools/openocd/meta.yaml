@@ -30,6 +30,9 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - automake
+    - libtool
+    - make
     - pkg-config
   host:
     - libftdi

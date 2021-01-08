@@ -24,6 +24,7 @@ requirements:
     - python
     - {{ compiler('c') }}   [not win]
     - {{ compiler('cxx') }} [not win]
+    - make                  [not win]
     - pkg-config            [not win]
     - cmake
   host:
