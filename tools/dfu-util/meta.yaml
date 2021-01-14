@@ -19,7 +19,12 @@ build:
 
 requirements:
   build:
+    # On macOS `autoconf`, `automake`, `coreutils`
+    # and `libtool` need to be installed from brew.
     - {{ compiler('c') }}
+    - autoconf    [linux]
+    - automake    [linux]
+    - make        [linux]
     - pkg-config
   host:
     - libusb

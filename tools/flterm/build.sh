@@ -7,5 +7,5 @@ fi
 set -x
 set -e
 
-make CC="gcc -I."
+make CC="$CC -I."
 make PREFIX=$PREFIX install

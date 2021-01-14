@@ -24,6 +24,7 @@ requirements:
     - {{ compiler('c') }}
     - automake  [not win]
     - autoconf  [not win]
+    - make      [not win]
   host:
     - pkg-config [not win]
 

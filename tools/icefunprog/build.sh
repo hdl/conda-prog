@@ -9,6 +9,10 @@ fi
 
 unset CFLAGS
 
+cd "$BUILD_PREFIX/bin"
+ln -s "$CC" gcc
+cd -
+
 make -j$CPU_COUNT
 
 make install

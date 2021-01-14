@@ -221,7 +221,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - run: brew install coreutils autoconf automake libtool
       - uses: litex-hub/litex-conda-ci@master
 
   #18
