@@ -13,7 +13,8 @@ source:
     - 0004-CVE-2017-8872.patch
 
 build:
-  number: 5
+  number: {{ environ.get('DATE_NUM') }}
+  string: {{ environ.get('DATE_STR') }}
   run_exports:
     # remove symbols at minor versions.
     #    https://abi-laboratory.pro/tracker/timeline/libxml2/
