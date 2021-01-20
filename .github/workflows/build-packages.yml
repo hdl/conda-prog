@@ -114,7 +114,7 @@ jobs:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
     env:
-      PACKAGE: "tools/iceprog"
+      PACKAGE: "tools/openocd"
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
