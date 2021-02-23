@@ -25,6 +25,7 @@ requirements:
     - autoconf    [linux]
     - automake    [linux]
     - make        [linux]
+    - pandoc
     - pkg-config
   host:
     - libusb
