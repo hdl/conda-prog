@@ -232,7 +232,6 @@ jobs:
     env:
       PACKAGE: "tools/openocd"
       OS_NAME: "osx"
-      SKIP: "true"  # See https://github.com/hdl/conda-prog/issues/21
     steps:
       - uses: actions/checkout@v2
         with:
