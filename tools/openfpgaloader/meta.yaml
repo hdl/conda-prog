@@ -45,6 +45,10 @@ requirements:
     - libusb
     - libhidapi
 
+test:
+  commands:
+    - openFPGALoader -V
+
 about:
   home: https://github.com/trabucayre/openFPGALoader
   license_file: LICENSE
