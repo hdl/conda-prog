@@ -14,22 +14,9 @@ The current tools are;
 
 # Building
 
-This repository is set up to be built by Travis CI, using the GitHub
-integration to Travis CI.
+This repository is set up to be built using GitHub Actions.
 
-See [`.travis.yml`](.travis.yml) for the build configuration given to
-Travis CI, and the [`.travis`](.travis) directory for scripts referenced.
-
-The Travis CI output can be found on the https://travis-ci.org/ for the
-GitHub account and GitHub repository.  For instance, for the main:
-
-https://github.com/timvideos/conda-hdmi2usb-packages
-
-GitHub repository, the Travis CI results can be seen at:
-
-https://travis-ci.org/timvideos/conda-hdmi2usb-packages
-
-On a successful build in the `timvideos` Travis CI, the resulting packages
+On a successful build in the `timvideos` GitHub Actions, the resulting packages
 are uploaded to:
 
 https://anaconda.org/TimVideos/repo
