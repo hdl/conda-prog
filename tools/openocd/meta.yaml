@@ -10,7 +10,6 @@ source:
   patches:
     - digilent-arty.patch
     - digilent-cmod-a7.patch
-    - digilent-nexys_video.patch
     - gadgetfactory-papilio_duo.patch
     - numato-neso.patch
     - numato-saturn.patch
