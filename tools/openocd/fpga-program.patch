@@ -1,5 +1,5 @@
 diff --git a/tcl/cpld/xilinx-xc6s.cfg b/tcl/cpld/xilinx-xc6s.cfg
-index 9ce7ad49..cba7cb0f 100644
+index 9ce7ad491..cba7cb0f4 100644
 --- a/tcl/cpld/xilinx-xc6s.cfg
 +++ b/tcl/cpld/xilinx-xc6s.cfg
 @@ -88,3 +88,9 @@ proc xc6s_print_dna {tap} {
@@ -13,10 +13,10 @@ index 9ce7ad49..cba7cb0f 100644
 +	xc6s_program $_CHIPNAME.tap
 +}
 diff --git a/tcl/cpld/xilinx-xc7.cfg b/tcl/cpld/xilinx-xc7.cfg
-index d5824f8a..2be7920c 100644
+index 4c0502c5d..a8e7e5b12 100644
 --- a/tcl/cpld/xilinx-xc7.cfg
 +++ b/tcl/cpld/xilinx-xc7.cfg
-@@ -55,3 +55,8 @@ proc xc7_program {tap} {
+@@ -63,3 +63,8 @@ proc xc7_program {tap} {
  	irscan $tap $XC7_BYPASS
  	runtest 2000
  }
