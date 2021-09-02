@@ -18,7 +18,7 @@ on:
 env:
   ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
   ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
-  NUM_OF_JOBS: 20
+  NUM_OF_JOBS: 21
 defaults:
   run:
     shell: bash
@@ -37,6 +37,19 @@ jobs:
       - uses: hdl/conda-ci@master
 
   #2
+  libhidapi-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "libusb-linux"
+    env:
+      PACKAGE: "lib/hidapi"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: hdl/conda-ci@master
+
+  #3
   libxml2-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -48,7 +61,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #3
+  #4
   icefunprog-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -60,7 +73,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #4
+  #5
   flterm-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -72,7 +85,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #5
+  #6
   libftdi-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -85,7 +98,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #6
+  #7
   fxload-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -98,7 +111,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #7
+  #8
   dfu-util-linux:
     runs-on: "ubuntu-16.04"
     needs: "libusb-linux"
@@ -111,7 +124,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #8
+  #9
   iceprog-linux:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
@@ -124,7 +137,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #9
+  #10
   openocd-linux:
     runs-on: "ubuntu-16.04"
     needs: ["libusb-linux", "libftdi-linux"]
@@ -137,7 +150,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #10
+  #11
   libusb-osx:
     runs-on: "macos-latest"
     env:
@@ -149,7 +162,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #11
+  #12
   libxml2-osx:
     runs-on: "macos-latest"
     env:
@@ -161,7 +174,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #12
+  #13
   icefunprog-osx:
     runs-on: "macos-latest"
     env:
@@ -173,7 +186,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #13
+  #14
   flterm-osx:
     runs-on: "macos-latest"
     env:
@@ -185,7 +198,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #14
+  #15
   libftdi-osx:
     runs-on: "macos-latest"
     needs: "libusb-osx"
@@ -198,7 +211,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #15
+  #16
   dfu-util-osx:
     runs-on: "macos-latest"
     needs: "libusb-osx"
@@ -212,7 +225,7 @@ jobs:
       - run: brew install coreutils autoconf automake libtool
       - uses: hdl/conda-ci@master
 
-  #16
+  #17
   iceprog-osx:
     runs-on: "macos-latest"
     needs: ["libusb-osx", "libftdi-osx"]
@@ -225,7 +238,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #17
+  #18
   openocd-osx:
     runs-on: "macos-latest"
     needs: ["libusb-osx", "libftdi-osx"]
@@ -238,7 +251,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #18
+  #19
   libusb-windows:
     runs-on: "windows-latest"
     env:
@@ -250,7 +263,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #19
+  #20
   libftdi-windows:
     runs-on: "windows-latest"
     needs: "libusb-windows"
@@ -263,7 +276,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #20
+  #21
   iceprog-windows:
     runs-on: "windows-latest"
     needs: ["libusb-windows", "libftdi-windows"]
