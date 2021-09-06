@@ -25,11 +25,11 @@ requirements:
   build:
     - {{ compiler('c') }}
     - libusb
-    - automake
-    - autoconf
+    - automake [not win]
+    - autoconf [not win]
     - cmake
-    - libtool
-    - make
+    - libtool [not win]
+    - make [not win]
   host:
     - pkg-config [not win]
 
