@@ -26,7 +26,7 @@ jobs:
 
   #1
   libusb-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "lib/usb"
       OS_NAME: "linux"
@@ -51,7 +51,7 @@ jobs:
 
   #3
   libxml2-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "lib/xml2"
       OS_NAME: "linux"
@@ -63,7 +63,7 @@ jobs:
 
   #4
   icefunprog-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "tools/icefunprog"
       OS_NAME: "linux"
@@ -75,7 +75,7 @@ jobs:
 
   #5
   flterm-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "tools/flterm"
       OS_NAME: "linux"
@@ -87,7 +87,7 @@ jobs:
 
   #6
   libftdi-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libusb-linux"
     env:
       PACKAGE: "lib/ftdi"
@@ -100,7 +100,7 @@ jobs:
 
   #7
   fxload-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libusb-linux"
     env:
       PACKAGE: "tools/fxload"
@@ -113,7 +113,7 @@ jobs:
 
   #8
   dfu-util-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libusb-linux"
     env:
       PACKAGE: "tools/dfu-util"
@@ -126,7 +126,7 @@ jobs:
 
   #9
   iceprog-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libusb-linux", "libftdi-linux"]
     env:
       PACKAGE: "tools/iceprog"
@@ -139,7 +139,7 @@ jobs:
 
   #10
   openocd-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libusb-linux", "libftdi-linux"]
     env:
       PACKAGE: "tools/openocd"
@@ -329,7 +329,7 @@ jobs:
       - uses: hdl/conda-ci@master
 
   master-package:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
     steps:
