@@ -38,7 +38,7 @@ jobs:
 
   #2
   libhidapi-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "libusb-linux"
     env:
       PACKAGE: "lib/hidapi"
@@ -152,7 +152,7 @@ jobs:
 
   #11
   openfpgaloader-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: ["libusb-linux", "libftdi-linux", "libhidapi-linux"]
     env:
       PACKAGE: "tools/openfpgaloader"
