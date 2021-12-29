@@ -33,6 +33,7 @@ requirements:
     - libtool
     - make
     - pkg-config
+    - texinfo
   host:
     - libftdi
     - libusb
