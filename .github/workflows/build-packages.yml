@@ -32,8 +32,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #2
@@ -45,8 +43,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #3
@@ -57,8 +53,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #4
@@ -69,8 +63,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #5
@@ -81,8 +73,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #6
@@ -94,8 +84,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #7
@@ -107,8 +95,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #8
@@ -120,8 +106,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #9
@@ -133,8 +117,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #10
@@ -146,8 +128,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #11
@@ -159,8 +139,6 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #12
@@ -171,8 +149,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #13
@@ -184,8 +160,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #14
@@ -196,8 +170,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #15
@@ -208,8 +180,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #16
@@ -220,8 +190,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #17
@@ -233,8 +201,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #18
@@ -246,8 +212,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - run: brew install coreutils autoconf automake libtool
       - uses: hdl/conda-ci@master
 
@@ -260,8 +224,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #20
@@ -273,8 +235,6 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #21
@@ -285,8 +245,6 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #22
@@ -298,8 +256,6 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #23
@@ -311,8 +267,6 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
 
   #24
@@ -324,22 +278,27 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
       - uses: hdl/conda-ci@master
+
 
   master-package:
     runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
+      CI_SCRIPTS_REL_PATH: "conda-ci"
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          submodules: 'true'
+          repository: hdl/conda-ci
+          ref: master
+          path: ${{ env.CI_SCRIPTS_REL_PATH }}
       - uses: actions/setup-python@v1
       - uses: BSFishy/pip-action@v1
         with:
           packages: urllib3
       - run: |
-          bash .github/scripts/install.sh
-          python .github/scripts/wait-for-statuses.py
+          # Required internally by the scripts to locate other scripts.
+          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH"
+          bash $CI_SCRIPTS_PATH/install.sh
+          python $CI_SCRIPTS_PATH/wait-for-statuses.py
