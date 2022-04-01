@@ -239,7 +239,7 @@ jobs:
 
   #21
   libusb-windows:
-    runs-on: "windows-latest"
+    runs-on: "windows-2019"
     env:
       PACKAGE: "lib/usb"
       OS_NAME: "windows"
@@ -249,7 +249,7 @@ jobs:
 
   #22
   libhidapi-windows:
-    runs-on: "windows-latest"
+    runs-on: "windows-2019"
     needs: "libusb-windows"
     env:
       PACKAGE: "lib/hidapi"
@@ -260,7 +260,7 @@ jobs:
 
   #23
   libftdi-windows:
-    runs-on: "windows-latest"
+    runs-on: "windows-2019"
     needs: "libusb-windows"
     env:
       PACKAGE: "lib/ftdi"
@@ -271,7 +271,7 @@ jobs:
 
   #24
   iceprog-windows:
-    runs-on: "windows-latest"
+    runs-on: "windows-2019"
     needs: ["libusb-windows", "libftdi-windows"]
     env:
       PACKAGE: "tools/iceprog"
