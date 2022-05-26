@@ -32,7 +32,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #2
   libhidapi-linux:
@@ -43,7 +43,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #3
   libxml2-linux:
@@ -53,7 +53,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #4
   icefunprog-linux:
@@ -63,7 +63,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #5
   flterm-linux:
@@ -73,7 +73,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #6
   libftdi-linux:
@@ -84,7 +84,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #7
   fxload-linux:
@@ -95,7 +95,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #8
   dfu-util-linux:
@@ -106,7 +106,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #9
   iceprog-linux:
@@ -117,7 +117,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #10
   openocd-linux:
@@ -128,7 +128,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #11
   openfpgaloader-linux:
@@ -139,7 +139,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #12
   libusb-osx:
@@ -149,7 +149,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #13
   libhidapi-osx:
@@ -160,7 +160,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #14
   libxml2-osx:
@@ -170,7 +170,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #15
   icefunprog-osx:
@@ -180,7 +180,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #16
   flterm-osx:
@@ -190,7 +190,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #17
   libftdi-osx:
@@ -201,7 +201,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #18
   dfu-util-osx:
@@ -213,7 +213,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: brew install coreutils autoconf automake libtool
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #19
   iceprog-osx:
@@ -224,7 +224,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #20
   openocd-osx:
@@ -235,7 +235,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #21
   libusb-windows:
@@ -245,7 +245,7 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #22
   libhidapi-windows:
@@ -256,7 +256,7 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #23
   libftdi-windows:
@@ -267,7 +267,7 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #24
   iceprog-windows:
@@ -278,19 +278,19 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
 
   master-package:
     runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
-      CI_SCRIPTS_REL_PATH: "conda-ci"
+      CI_SCRIPTS_REL_PATH: "conda-eda"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
         with:
-          repository: hdl/conda-ci
+          repository: hdl/conda-eda
           ref: master
           path: ${{ env.CI_SCRIPTS_REL_PATH }}
       - uses: actions/setup-python@v1
@@ -299,6 +299,6 @@ jobs:
           packages: urllib3
       - run: |
           # Required internally by the scripts to locate other scripts.
-          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH"
+          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH/ci"
           bash $CI_SCRIPTS_PATH/install.sh
           python $CI_SCRIPTS_PATH/wait-for-statuses.py
